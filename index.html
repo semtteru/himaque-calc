@@ -1,0 +1,44 @@
+@echo off
+echo 現在レベルを入力してください。
+set /p level=
+echo 現在レベルに含まれている経験値を入力してください(XP これ→20←これ/400)。(ないなら0で)
+set /p nowxp=
+set oldlevel=%level%
+echo 残りXPを入力してください。
+set /p xp=
+echo ☆を入力してください。(ないなら0)
+set /p st=
+set /a st=%st%*300
+set /a max=100*%level%+%st%
+set /a xp=%xp%+%nowxp%
+cls
+echo 計算中...
+
+:count
+set /a max=100*%level%+%st%
+if %max% GTR %xp% goto end
+set /a xp=%xp%-%max%
+set /a level=%level%+1
+set star=0
+set stardisp=
+set newlevel=%level%
+goto count
+
+:end
+if %level% GTR 300 goto star
+cls
+set /a differance=%newlevel%-%oldlevel%
+echo ～計算完了～
+echo レベル：%level%%stardisp%
+echo 余り経験値：%xp%
+echo.
+echo レベル%oldlevel%→%level% (%differance%上昇)
+pause>nul
+exit
+
+:star
+echo %level%
+set /a level=%level%-300
+set /a star=%star%+1
+set stardisp=☆%star%
+goto end
