@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang ="ja">
+    <head>
+    <meta http-equiv="Content-Type" charset="UTF-8">>
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <script src="script.js"></script>
+    <title>ヒマクエRPG経験値計算機</title>
+    </head>
+ <body>
+    <h1>ヒマクエRPG経験値計算機</h1>
+    <a href="http://himaquest.com/">HIMACHATQUEST</a href>
+            <br>
+            <blockquote>
+            <h1>経験値計算機ver.1.1</h1>
+            <form name="level">
+            <label>現在のレベル：<input type="text" id="level" onchange="ch()" value="0" onfocus="if (this.value == 0) this.value = '';" onblur="if (!this.value) this.value = 0;"></label><br><br>
+            <label>経験値：<input type="text" name="nowxp" value="0" onfocus="if (this.value == 0) this.value = '';" onblur="if (!this.value) this.value = 0;"></label>/<span id="maxexp">10000</span>　　+　　<label><input type="text" id="xp" onkeydown="if(event.keyCode == 13){javascript:lv();}" value="0" onfocus="if (this.value == 0) this.value = '';" onblur="if (!this.value) this.value = 0;">XP</label><br><br>
+            <input type="button" value="計算開始" onclick="lv()"><br><br>
+            <textarea id="result" rows="10" cols="80" onfocus="javascript:this.select()" readonly=""></textarea>
+            </form>
+            </blockquote>
+            </body>
+    </html>
